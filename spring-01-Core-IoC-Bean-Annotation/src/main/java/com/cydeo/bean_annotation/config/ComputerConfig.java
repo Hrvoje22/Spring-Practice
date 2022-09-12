@@ -9,15 +9,17 @@ import com.cydeo.bean_annotation.motherboardfactory.AsusMotherboard;
 import com.cydeo.bean_annotation.motherboardfactory.Motherboard;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class ComputerConfig {
 
-    @Bean
+    @Bean(name = "sony")
     public Monitor monitorSony(){
         return new SonyMonitor("25 inch Beast","Acer",25); //Monitor abc = new SonyMonitor(); - Polymorphism
     }
-
+    @Bean
+    @Primary //multiple objects - it will take the primary one
     public Monitor monitorAcer(){
         return new AcerMonitor("23 inch Beast","Acer",23);
     }

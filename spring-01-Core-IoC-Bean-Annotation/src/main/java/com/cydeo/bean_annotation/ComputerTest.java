@@ -22,8 +22,9 @@ public class ComputerTest {
         //Creating container by using BeanFactory
         BeanFactory context = new AnnotationConfigApplicationContext();
 
+        System.out.println("Retrieving Beans");
         //Monitor theMonitor = container.getBean(Monitor.class);
-        SonyMonitor theMonitor = container.getBean(SonyMonitor.class); //how to get a specific monitor from monitor container???
+        Monitor theMonitor = container.getBean(Monitor.class); //how to get a specific monitor from monitor container???
         Case theCase = container.getBean(Case.class);
         Motherboard theMotherboard = container.getBean(Motherboard.class);
 
@@ -32,6 +33,13 @@ public class ComputerTest {
         myPc.powerUp();
 
         //System.out.println(Arrays.toString(container.getBeanDefinitionNames()));
+
+
+        System.out.println("Multiple Objects");
+
+        Monitor theMonitor2 = container.getBean("monitorSony",Monitor.class); //DEFAULT BEAN NAME
+        Monitor theMonitor3 = container.getBean("sony",Monitor.class); //CUSTOM BEAN NAME
+        Monitor theMonitor4 = container.getBean(Monitor.class); //PRIMARY BEAN NAME
 
 
 
