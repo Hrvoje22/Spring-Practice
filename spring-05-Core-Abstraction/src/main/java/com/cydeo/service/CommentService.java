@@ -18,7 +18,7 @@ public class CommentService {
     //we can autowire one by one but constructor option is better
 
     //@AutoWired comes automatically
-    public CommentService(CommentRepository commentRepository, @Qualifier("emailCommentNotificationProxy") CommentNotificationProxy commentNotificationProxy) {
+    public CommentService(CommentRepository commentRepository, @Qualifier("EMAIL") CommentNotificationProxy commentNotificationProxy) {
         this.commentRepository = commentRepository;
         this.commentNotificationProxy = commentNotificationProxy;
     }
