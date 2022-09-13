@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class CommentService {
 
-    private CommentRepository commentRepository;
-    private CommentNotificationProxy commentNotificationProxy;
+    private final CommentRepository commentRepository; //recommended to put final so it reminds us to create constructor if we forget
+    private final CommentNotificationProxy commentNotificationProxy;
     //to avoid tightly coupled we used interface - to be loosely
 
     //we can autowire one by one but constructor option is better
