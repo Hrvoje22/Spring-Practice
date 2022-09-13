@@ -15,7 +15,7 @@ public class PC {
     private Monitor monitor;
     private Motherboard motherboard;
 
-    @Autowired //no need to do it - automatically
+    @Autowired //no need to do it when we have one constructor- automatically
     public PC(Case theCase, Monitor monitor, Motherboard motherboard) {
         this.theCase = theCase;
         this.monitor = monitor;
