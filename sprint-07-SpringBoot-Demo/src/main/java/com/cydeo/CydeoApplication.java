@@ -1,5 +1,6 @@
 package com.cydeo;
 
+import com.cydeo.config.AppConfigData;
 import com.cydeo.model.Comment;
 import com.cydeo.service.CommentService;
 import org.springframework.boot.SpringApplication;
@@ -19,6 +20,9 @@ public class CydeoApplication {
 
 		CommentService commentService = container.getBean(CommentService.class);
 		commentService.publishComment(comment);
+
+		commentService.printConfigData();
+		commentService.printDbConfigData();
 
 
 	}
