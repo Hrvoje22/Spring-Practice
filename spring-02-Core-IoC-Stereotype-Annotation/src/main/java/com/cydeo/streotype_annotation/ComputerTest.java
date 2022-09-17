@@ -12,7 +12,11 @@ public class ComputerTest {
         ApplicationContext container = new AnnotationConfigApplicationContext(PcConfig.class);
 
         Monitor theMonitor = container.getBean(Monitor.class);
+        Monitor theMonitor2 = (Monitor)container.getBean("acerMonitor");
         System.out.println(theMonitor.getSize());
+        System.out.println(theMonitor2.getSize());
+
+        //with casting we can get the other object that is not Primary
 
 
 
