@@ -14,10 +14,16 @@ public class PcConfig {
         return new Dimensions(50,10,10);
     }
 
-    @Bean
-    public Case caseDell (Dimensions dimensions){
+//    @Bean
+//    public Case caseDell (Dimensions dimensions){
 
-        return new DellCase("220B","Dell","240",dimensions);
+//        return new DellCase("220B","Dell","240",dimensions);
+//  }
+
+    @Bean
+    public Case caseDell (){
+
+        return new DellCase("220B","Dell","240",dimensions());
 
     }
 
