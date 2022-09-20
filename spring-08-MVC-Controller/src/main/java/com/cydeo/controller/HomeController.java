@@ -16,7 +16,7 @@ public class HomeController {
         return "home.html";
     }
 
-    @RequestMapping({"/apple","/orange"})
+    @RequestMapping({"/apple","/orange"}) // certain same view with different end points
     public String home3(){ // end point mapping with requestMapping - exp www.amazon/home
         return "home.html";
     }
