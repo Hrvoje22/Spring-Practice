@@ -22,6 +22,7 @@ public class PaymentDetail {
     @Column(columnDefinition = "DATE")
     private LocalDate payoutDate;
 
+    //ownership of the foreign key to payment class
     @OneToOne(mappedBy = "paymentDetail")
     private Payment payment;
 
