@@ -12,5 +12,4 @@ public class Genre extends BaseEntity{
 
     private String name;
 
-
 }
