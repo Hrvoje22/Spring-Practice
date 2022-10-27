@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface RegionRepository extends JpaRepository<Region,Long> {
+public interface RegionRepository extends JpaRepository<Region,Integer> {
 
     //Display all regions in Canada
     List<Region> findByCountry(String country);
