@@ -3,6 +3,7 @@ package com.cydeo.repository;
 import com.cydeo.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -76,8 +77,34 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
     List<Employee> retrieveEmployeeSalaryBetween(int salary1,int salary2);
 
     //Before
-    @Query("SELECT e from Employee  e WHERE e.hireDate > ?1")
-    List<Employee> retrieveEmployeHireDateBefore(LocalDate date);
+    @Query("SELECT e from Employee e WHERE e.hireDate > ?1")
+    List<Employee> retrieveEmployeeHireDateBefore(LocalDate date);
+
+
+    //NULL
+    @Query("SELECT e FROM Employee e WHERE e.email IS NULL")
+    List<Employee> retrieveEmployeeEmailIsNUll();
+
+    @Query("SELECT e FROM Employee e WHERE e.email IS NOT NULL")
+    List<Employee> retrieveEmployeeEmailIsNotNUll();
+
+
+    //Sorting in Asc Order
+    @Query("SELECT e FROM Employee e ORDER BY e.salary")
+    List<Employee> retrieveEmployeeSalaryOrderAsc();
+
+    //Sorting in Desc Order
+    @Query("SELECT e FROM Employee e ORDER BY e.salary DESC")
+    List<Employee> retrieveEmployeeSalaryOrderDesc();
+
+    //NATIVE QUERY
+    @Query(value="SELECT * FROM employees WHERE salary=?1",nativeQuery = true)
+    List<Employee> retrieveEmployeeDetailBySalary(int salary);
+
+    //Named Parameter
+    @Query("SELECT e FROM Employee e WHERE e.salary = :salary")
+    List<Employee> retrieveEmployeeSalary(@Param("salary") int Salary);
+
 
 
 }
