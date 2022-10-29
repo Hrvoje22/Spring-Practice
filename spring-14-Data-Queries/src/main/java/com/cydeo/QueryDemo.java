@@ -32,7 +32,7 @@ public class QueryDemo implements CommandLineRunner {
         System.out.println("findTopByCountryContainsOrderByRegion: " + regionRepository.findTopByCountryContainsOrderByRegion("United States"));
 
         //DEPARTMENTS
-        System.out.println("findByDeparment: " + departmentRepository.findByDepartment("Furniture"));
+        System.out.println("findByDepartment: " + departmentRepository.findByDepartment("Furniture"));
         System.out.println("findByDivision: " + departmentRepository.findByDivision("Health"));
         System.out.println("findByDivisionEndingWithIgnoreCase: " + departmentRepository.findByDivisionEndingWithIgnoreCase("ics"));
         System.out.println("findDistinctTop3ByDivisionContains: " + departmentRepository.findDistinctTop3ByDivisionContains("Hea"));
