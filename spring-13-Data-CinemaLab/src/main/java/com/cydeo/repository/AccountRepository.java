@@ -59,10 +59,10 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
     //Write a native query to read all accounts that a specific value can be containable in the name, address, country, state, city
     @Query(value = "SELECT * FROM account_details WHERE name ILIKE concat('%',?1,'%')" +
-            "OR country ILIKE ('%',?1,'%')" +
-            "OR address ILIKE ('%',?1,'%')" +
-            "OR ad.state ILIKE ('%',?1,'%')" +
-            "OR city ILIKE ('%',?1,'%')",nativeQuery = true)
+            "OR country ILIKE concat('%',?1,'%')" +
+            "OR address ILIKE concat('%',?1,'%')" +
+            "OR ad.state ILIKE concat('%',?1,'%')" +
+            "OR city ILIKE concat('%',?1,'%')",nativeQuery = true)
     List<Account> retrieveBySearchCriteria(@Param("pattern") String pattern);
 
     //Write a native query to read all accounts with an age higher than a specific value
