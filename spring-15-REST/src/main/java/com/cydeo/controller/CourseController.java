@@ -33,6 +33,13 @@ public class CourseController {
 
     }
 
+    @GetMapping("category/{name}")
+    public List<CourseDTO> getCourseByCategory(@PathVariable("name") String category){
+
+        return courseService.getCoursesByCategory(category);
+
+    }
+
 
 
 
