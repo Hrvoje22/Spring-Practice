@@ -35,6 +35,7 @@ public class Consume_RestTemplate {
         return restTemplate.getForObject(URL,Object.class,id);
     }
 
+    @GetMapping("/test")
     public ResponseEntity<Object> consumePostFromDummyApi(){
 
         HttpHeaders headers = new HttpHeaders();
