@@ -1,9 +1,7 @@
 package com.cydeo.dto;
 
 import com.cydeo.enums.Status;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +17,7 @@ import java.time.LocalDate;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ParentDTO {
 
+    @JsonIgnore
     private Long id;
 
     private String firstName;
@@ -28,6 +27,7 @@ public class ParentDTO {
 
     private String email;
     private String username;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     private LocalDate birthday;
