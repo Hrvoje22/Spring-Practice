@@ -1,4 +1,4 @@
-package com.entity;
+package com.cydeo.entity;
 
 import com.cydeo.enums.UserRole;
 import lombok.Data;
