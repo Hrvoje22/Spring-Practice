@@ -9,6 +9,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.*;
+
 @Entity
 @Data
 @NoArgsConstructor
