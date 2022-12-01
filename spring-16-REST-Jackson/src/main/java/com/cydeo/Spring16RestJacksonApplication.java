@@ -12,7 +12,6 @@ public class Spring16RestJacksonApplication {
         SpringApplication.run(Spring16RestJacksonApplication.class, args);
     }
 
-
     @Bean
     public ModelMapper mapper() {
         return new ModelMapper();
