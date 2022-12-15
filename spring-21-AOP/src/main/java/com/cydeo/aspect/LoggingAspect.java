@@ -1,6 +1,7 @@
 package com.cydeo.aspect;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -38,12 +39,46 @@ public class LoggingAspect {
 //    }
 
 
-    @Pointcut("within(com.cydeo.controller..*)")
-    public void anyControllerOperation(){}
+//    @Pointcut("within(com.cydeo.controller..*)")
+//    public void anyControllerOperation(){}
+//
+//    @Pointcut("@within(org.springframework.stereotype.Service)")
+//    public void anyServiceOperation(){}
+//
+//    @Before("anyControllerOperation() || anyServiceOperation()")
+//    public void beforeControllerOrServiceAdvice(JoinPoint joinPoint){
+//        logger.info("Before -> Method: {}, Arguments : {}, Target: {}"
+//                , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
+//
+//    }
 
-    @Pointcut("@within(org.springframework.stereotype.Service)")
-    public void anyServiceOperation(){}
 
+//    @Pointcut("@annotation(org.springframework.web.bind.annotation.DeleteMapping)")
+//    public void anyDeleteControllerOperation(){}
+//
+//    @Before("anyDeleteControllerOperation()")
+//    public void beforeDeleteMappingAnnotation(JoinPoint joinPoint){
+//        logger.info("Before -> Method: {}, Arguments : {}, Target: {}"
+//                , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
+//
+//    }
 
+//    @Pointcut("@annotation(com.cydeo.annotation.LoggingAnnotation)")
+//    public void loggingAnnotationPC(){}
+//
+//    @Before("loggingAnnotationPC()")
+//    public void beforeDeleteMappingAnnotation(JoinPoint joinPoint){
+//        logger.info("Before -> Method: {}, Arguments : {}, Target: {}"
+//                , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
+//
+//    }
+
+    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
+    public void afterGetMappingAnnotation(){}
+
+    @AfterReturning(pointcut = "afterGetMappingAnnotation()", returning = "result")
+    public void afterReturningGetMappingOperation(JoinPoint joinPoint, Object result){
+        logger.info("Before -> Method: {}, Result: {}", joinPoint.getSignature(), result.toString());
+    }
 
 }
