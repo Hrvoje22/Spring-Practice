@@ -27,10 +27,11 @@ class CalculatorTest {
     }
 
     @Test
+    @DisplayName("My Method") //on the left side - if not it will show method name
     void add() {
         System.out.println("Add Method");
         int actual = Calculator.add(2,3);
-        assertEquals(4,actual,"Test Failed");
+        assertEquals(5,actual,"Test Failed");
     }
 
     @Test
