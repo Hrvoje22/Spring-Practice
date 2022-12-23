@@ -52,10 +52,13 @@ class ProjectServiceImplTest {
     @Test
     void getByProjectCode_ExceptionTest(){
 
+        //behaviour
         when(projectRepository.findByProjectCode("")).thenThrow(new NoSuchElementException("Project Not Found"));
 
+        //running
         Throwable throwable = assertThrows(NoSuchElementException.class, ()-> projectService.getByProjectCode(""));
 
+        //checking
         verify(projectRepository).findByProjectCode("");
         verify(projectMapper, never()).convertToDto(any(Project.class));
 
