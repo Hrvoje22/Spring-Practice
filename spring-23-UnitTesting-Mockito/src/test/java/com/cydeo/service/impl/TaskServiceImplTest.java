@@ -32,13 +32,16 @@ class TaskServiceImplTest {
     @ValueSource(longs = {1L,2L,3L})
     void findById_Test(long id){
 
+        //Given(Preparation)
         Task task = new Task();
 
         when(taskRepository.findById(id)).thenReturn(Optional.of(task)); //Optional <Task>
         when(taskMapper.convertToDto(task)).thenReturn(new TaskDTO());
 
+        //When (Action is happening)
         taskService.findById(id);
 
+        //Then(Assertions and verification checks)
         verify(taskRepository).findById(id);
         verify(taskMapper).convertToDto(task);
     }
